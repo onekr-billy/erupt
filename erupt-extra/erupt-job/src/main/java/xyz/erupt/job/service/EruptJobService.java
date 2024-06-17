@@ -13,8 +13,8 @@ import xyz.erupt.job.model.EruptJob;
 import xyz.erupt.job.model.EruptJobLog;
 import xyz.erupt.jpa.dao.EruptDao;
 
-import javax.annotation.Resource;
-import javax.transaction.Transactional;
+import jakarta.annotation.Resource;
+import jakarta.transaction.Transactional;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;

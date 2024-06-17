@@ -6,9 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -51,13 +49,18 @@ public class ReflectUtil {
 
     public static void findClassAllFields(Class<?> clazz, Consumer<Field> fieldConsumer) {
         Class<?> tempClass = clazz;
+        HashSet<String> fields = new HashSet<>();
         while (null != tempClass) {
             for (Field field : tempClass.getDeclaredFields()) {
                 int mod = field.getModifiers();
                 if (Modifier.isStatic(mod) || Modifier.isInterface(mod)) {
                     continue;
                 }
-                fieldConsumer.accept(field);
+                if(!fields.contains(field.getName())) {
+                    // 解决反射字段的时候, 子类重写了父类字段,导致 生成 sql join 的时候, 多个 同名的别名
+                    fields.add(field.getName());
+                    fieldConsumer.accept(field);
+                }
             }
             tempClass = tempClass.getSuperclass();
         }

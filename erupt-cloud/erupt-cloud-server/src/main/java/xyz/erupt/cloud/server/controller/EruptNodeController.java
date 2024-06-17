@@ -6,7 +6,7 @@ import xyz.erupt.cloud.server.base.CloudServerConst;
 import xyz.erupt.cloud.server.node.NodeManager;
 import xyz.erupt.upms.annotation.EruptMenuAuth;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @author YuePeng

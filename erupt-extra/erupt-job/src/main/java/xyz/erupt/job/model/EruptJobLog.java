@@ -16,7 +16,7 @@ import xyz.erupt.annotation.sub_field.sub_edit.BoolType;
 import xyz.erupt.annotation.sub_field.sub_edit.Search;
 import xyz.erupt.jpa.model.BaseModel;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 /**
@@ -73,7 +73,7 @@ public class EruptJobLog extends BaseModel {
     private String resultInfo;
 
     @Lob
-    @Type(type = "org.hibernate.type.TextType")
+//    @Type(type = "org.hibernate.type.TextType")
     @EruptField(
             views = @View(title = "错误信息", type = ViewType.HTML),
             edit = @Edit(title = "错误信息")

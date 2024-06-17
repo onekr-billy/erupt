@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import xyz.erupt.annotation.config.Comment;
 import xyz.erupt.jpa.service.EntityManagerService;
 
-import javax.annotation.Resource;
-import javax.persistence.*;
+import jakarta.annotation.Resource;
+import jakarta.persistence.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
